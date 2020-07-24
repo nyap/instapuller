@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">Username</th>
+			<th scope="col">Caption</th>
+			<th scope="col">Link</th>
+			<th scope="col">Thumbnail</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for item in data %}
+		<tr>
+			<td scope="row">{{item.username}}</td>
+			<td>{{item.caption | truncate(400)}}</td>
+			<td><a href="{{item.direct_link}}">Insta Link</a>
+			</td>
+			<td>
+				<a href="{{item.thumbnail_src}}">
+					<img src="{{item.thumbnail_src}}" alt="">
+				</a>
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}
